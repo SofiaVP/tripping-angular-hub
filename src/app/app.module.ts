@@ -14,6 +14,7 @@ import { BasicComponent } from './basic/basic.component';
 import { WeatherComponent } from './basic/weather/weather.component';
 import { TestComponent } from './basic/test/test.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatCardModule,
     MatRadioModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule, 
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

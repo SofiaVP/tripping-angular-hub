@@ -1,7 +1,7 @@
 
   <mat-card>
     <mat-card-header>
-      <mat-card-title>Current weather in {{cityName}}</mat-card-title>
+      <mat-card-title>Current weather in {{weather.name}}</mat-card-title>
       <mat-card-subtitle>
         <mat-radio-group aria-label="Select an option">
           <mat-radio-button value="1">°C </mat-radio-button> 
@@ -17,13 +17,17 @@
           <div class="example-form">
             <mat-form-field class="example-full-width">
               <mat-label>City</mat-label>
-              <input matInput  [(ngModel)]="cityName"/> 
+              <input matInput  [(ngModel)]="weather.name"/> 
             </mat-form-field>
             <button mat-button (click)= "onGetCurrentWeather()">SEARCH</button>
-            </div>
+          </div>
         </mat-card-actions>
       </div>
+       <div>
+         <textarea matInput></textarea>
+       </div>
     </mat-card-content>
   </mat-card>
 
+  <div>{{weather.dt}}</div>
 

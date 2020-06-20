@@ -13,7 +13,7 @@ export class WeatherService {
   public recupererWeather() :Observable<Weather>{
     //return of(this.tabDevises); //simulation
     //let url ="http://localhost:8282/devise-api/public/devise";
-    let url ="http://localhost:8282/weather-api/public/weather/Paris"; //url relative avec 
+    let url ="http://localhost:8282/weather-api/current/toulouse"; //url relative avec 
     // ng serve --proxy-config proxy.conf.json en mode DEV pour dediriger vers nodeJs
     return this.http.get<Weather>(url);
   }
