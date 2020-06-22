@@ -1,12 +1,8 @@
-
   <mat-card>
     <mat-card-header>
-      <mat-card-title>Current weather in {{weather.name}}</mat-card-title>
+      <mat-card-title>Current weather </mat-card-title>
       <mat-card-subtitle>
-        <mat-radio-group aria-label="Select an option">
-          <mat-radio-button value="1">°C </mat-radio-button> 
-          <mat-radio-button value="2">°F</mat-radio-button>
-        </mat-radio-group>  
+         City = <input [(ngModel)]="cityName"/> 
       </mat-card-subtitle>
       
     </mat-card-header>
@@ -19,13 +15,16 @@
               <mat-label>City</mat-label>
               <input matInput  [(ngModel)]="weather.name"/> 
             </mat-form-field>
-            <button mat-button (click)= "onGetCurrentWeather()">SEARCH</button>
+            <button mat-button (click)= "onGetweather()">SEARCH</button>
           </div>
+          <p>CITY = {{weather.name}}</p>
+         <p>DATE = {{weather.dt}}</p>
+         <p>TEMPERTATURE = {{weather.temp}}</p>
+         <p>FEELS LIKE = {{weather.feels_like}}</p>
+         <p>SUNRISE = {{weather.sunrise}}</p>
+         <p>SUNSET = {{weather.sunset}}</p>
         </mat-card-actions>
       </div>
-       <div>
-         <textarea matInput></textarea>
-       </div>
     </mat-card-content>
   </mat-card>
 
