@@ -1,32 +1,14 @@
-  <mat-card>
-    <mat-card-header>
-      <mat-card-title>Current weather </mat-card-title>
-      <mat-card-subtitle>
-         City = <input [(ngModel)]="cityName"/> 
-      </mat-card-subtitle>
-      
-    </mat-card-header>
-    <mat-card-content>
-    
-      <div>
-        <mat-card-actions>
-          <div class="example-form">
-            <mat-form-field class="example-full-width">
-              <mat-label>City</mat-label>
-              <input matInput  [(ngModel)]="weather.name"/> 
-            </mat-form-field>
-            <button mat-button (click)= "onGetweather()">SEARCH</button>
-          </div>
-          <p>CITY = {{weather.name}}</p>
-         <p>DATE = {{weather.dt}}</p>
-         <p>TEMPERTATURE = {{weather.temp}}</p>
-         <p>FEELS LIKE = {{weather.feels_like}}</p>
-         <p>SUNRISE = {{weather.sunrise}}</p>
-         <p>SUNSET = {{weather.sunset}}</p>
-        </mat-card-actions>
-      </div>
-    </mat-card-content>
-  </mat-card>
-
-  <div>{{weather.dt}}</div>
-
+<mat-card id="currentWeatherCard">
+  <mat-card-content>
+    <div class="example-form">
+      <mat-form-field class="example-full-width">
+        <mat-label>City</mat-label>
+        <mat-card-subtitle>Current weather in : </mat-card-subtitle>
+        <input matInput placeholder="Ex. Paris" [(ngModel)]="cityName" />
+      </mat-form-field>
+      <button mat-button (click)="onGetweather()">Search</button>
+      <p>Temperature : {{weather.temp}} °C</p>
+      <p>Feels like : {{weather.feels_like}} °C</p>
+    </div>
+  </mat-card-content>
+</mat-card>

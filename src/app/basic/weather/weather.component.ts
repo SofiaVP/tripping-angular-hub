@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { WeatherService } from 'src/app/common/service/weather.service';
 import { Weather } from 'src/app/common/data/weather';
 import { Observable, observable } from 'rxjs';
+import * as moment from 'moment';
+import { DatePipe } from '@angular/common';
 
 
 @Component({
@@ -11,47 +13,35 @@ import { Observable, observable } from 'rxjs';
 })
 export class WeatherComponent implements OnInit {
 
-  cityName:String = "toulouse";
-
-  // weather = { 
-  //   name: "Paris",
-  //   feels_like: 18.06
-  // }
-
+  cityName:String;
   weather : Weather 
+  pipe = new DatePipe('en-US');
+  now : any = Date.now()  ;
+  
+  
 
-  onGetCurrentWeather(){
-    console.log("++++++++ onGetCurrentWeather ++++++++"); 
-    //this.getweather();
-    console.log("this.weather.name = "+this.weather.name)
-    //first I want to ee that I can get the name of the city 
-    //console.log("this.weather.name = " + this.cityName);
-    //Then I will see if I can get the weather of that city with the method of nodejs     
-    //Observable<this.weather> = this.weatherService.recupererWeather();
-    // this.weatherService.recupererWeather()
-    // .subscribe(
-    //   (weatherFound)=>{this.weather},
-    //   (error) => { console.log(error); }
-    // );
-    // console.log("this.weather = "+this.weather)
+  convert(){
+    //dateToConv = this.weather.dt;
+    //this.date = moment(this.weather.dt);
+    //var day = moment(1318781876406);
+    const myFormattedDate = this.pipe.transform(this.now, 'short');
   }
 
-  constructor(private _WeatherService : WeatherService) { }
-  //constructor() { }
+  constructor(private _WeatherService : WeatherService) {
+    //this.date = this.convert();
+   }
 
   onGetweather(){
-    console.log(this.cityName)
+    console.log("in component.ts, cityName ="+this.cityName)
     this._WeatherService.recupererWeather(this.cityName)
     .subscribe(
       weatherRecup => this.weather= weatherRecup,
-      error => console.log(error)
-    )
+      error => console.log(error),
+      )
   }
 
 
   ngOnInit(): void {
-    //this.getweather();
  
-
-
-}}
+}
+}
