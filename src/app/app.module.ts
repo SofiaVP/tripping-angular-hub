@@ -9,6 +9,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSidenavModule} from '@angular/material/sidenav'; 
 import {MatTabsModule} from '@angular/material/tabs'; 
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatListModule} from '@angular/material/list';
+import {MatTableModule} from '@angular/material/table';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -21,6 +23,7 @@ import { WeatherComponent } from './basic/weather/weather.component';
 import { TestComponent } from './basic/test/test.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { ListsComponent } from './lists/lists.component';
 
 
 @NgModule({
@@ -30,7 +33,8 @@ import { HttpClientModule } from '@angular/common/http';
     FooterComponent,
     BasicComponent,
     WeatherComponent,
-    TestComponent
+    TestComponent,
+    ListsComponent
   ],
   imports: [
     BrowserModule,
@@ -44,6 +48,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatSidenavModule,
     MatTabsModule,
     MatExpansionModule,
+    MatListModule,
+    MatTableModule,
     FlexLayoutModule,
     HttpClientModule
   ],

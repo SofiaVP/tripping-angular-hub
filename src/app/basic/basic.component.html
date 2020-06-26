@@ -1,12 +1,25 @@
+
 <button type="button" mat-button (click)="drawer.toggle()"> > </button>
 <div fxLayout="row wrap" fxLayoutGap="10px" fxLayoutAlign="flex-start">
   <mat-drawer-container class="example-container" fxFlex="1 0 auto">
 
-
     <mat-drawer #drawer class="example-sidenav" mode="side">
 
-      <mat-accordion>
-        <mat-expansion-panel>
+        <mat-expansion-panel id="aboutMeExpansionPanel">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              About me
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+        </mat-expansion-panel>
+        <mat-expansion-panel id="myTripExpansionPanel">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              About my Trip
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+        </mat-expansion-panel>
+        <mat-expansion-panel id="weatherExpansionPanel">
           <mat-expansion-panel-header>
             <mat-panel-title>
               Weather
@@ -14,31 +27,21 @@
           </mat-expansion-panel-header>
           <mat-tab-group>
             <mat-tab label="Current weather">
-              <app-weather></app-weather>
+              <!-- <app-weather></app-weather> -->
             </mat-tab>
             <mat-tab label="Forcast 7 days"> Content 2 </mat-tab>
             <mat-tab label="Last years weather"> Content 3 </mat-tab>
           </mat-tab-group>
-
         </mat-expansion-panel>
-      </mat-accordion>
-
 
 
     </mat-drawer>
 
     <div class="example-sidenav-content">
+      <app-lists></app-lists>
+     
 
-
-
-
-      <app-test fxFlex="1 0 auto"></app-test>
-      <app-test fxFlex="1 0 auto"></app-test>
-      <app-test fxFlex="1 0 auto"></app-test>
-      <app-test fxFlex="1 0 auto"></app-test>
-      <app-test fxFlex="1 0 auto"></app-test>
-      <app-test fxFlex="1 0 auto"></app-test>
-      <app-test fxFlex="1 0 auto"></app-test>
+     
     </div>
 
   </mat-drawer-container>
