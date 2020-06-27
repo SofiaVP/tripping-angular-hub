@@ -1,5 +1,5 @@
-
 <button type="button" mat-button (click)="drawer.toggle()"> > </button>
+
 <div fxLayout="row wrap" fxLayoutGap="10px" fxLayoutAlign="flex-start">
   <mat-drawer-container class="example-container" fxFlex="1 0 auto">
 
@@ -11,7 +11,10 @@
               About me
             </mat-panel-title>
           </mat-expansion-panel-header>
+          <app-user></app-user>
         </mat-expansion-panel>
+
+
         <mat-expansion-panel id="myTripExpansionPanel">
           <mat-expansion-panel-header>
             <mat-panel-title>
@@ -19,6 +22,8 @@
             </mat-panel-title>
           </mat-expansion-panel-header>
         </mat-expansion-panel>
+
+
         <mat-expansion-panel id="weatherExpansionPanel">
           <mat-expansion-panel-header>
             <mat-panel-title>

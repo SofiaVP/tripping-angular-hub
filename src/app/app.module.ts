@@ -11,6 +11,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatListModule} from '@angular/material/list';
 import {MatTableModule} from '@angular/material/table';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -24,6 +25,8 @@ import { TestComponent } from './basic/test/test.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { ListsComponent } from './lists/lists.component';
+import { SiderComponent } from './sider/sider.component';
+import { UserComponent } from './user/user.component';
 
 
 @NgModule({
@@ -34,7 +37,9 @@ import { ListsComponent } from './lists/lists.component';
     BasicComponent,
     WeatherComponent,
     TestComponent,
-    ListsComponent
+    ListsComponent,
+    SiderComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
@@ -50,6 +55,7 @@ import { ListsComponent } from './lists/lists.component';
     MatExpansionModule,
     MatListModule,
     MatTableModule,
+    MatDatepickerModule,
     FlexLayoutModule,
     HttpClientModule
   ],
