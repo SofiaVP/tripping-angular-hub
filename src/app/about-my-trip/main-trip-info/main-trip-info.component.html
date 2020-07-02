@@ -1,0 +1,11 @@
+<br />
+<div>
+    <ngx-mat-drp (selectedDateRangeChanged)="updateRange($event)" [options]="options"></ngx-mat-drp>
+
+    <mat-label>My trip will last</mat-label>
+    <input matInput [(ngModel)]="period" /> 
+    <mat-label>days</mat-label>
+</div>
+
+<br />
+<!-- <mat-button (onclick)="updatePeriod($event)"> </mat-button> -->

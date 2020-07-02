@@ -1,14 +1,6 @@
-<mat-card id="currentWeatherCard">
-  <mat-card-content>
-    <div class="example-form">
-      <mat-form-field class="example-full-width">
-        <mat-label>City</mat-label>
-        <mat-card-subtitle>Current weather in : </mat-card-subtitle>
-        <input matInput placeholder="Ex. Paris" [(ngModel)]="cityName" />
-      </mat-form-field>
-      <button mat-button (click)="onGetweather()">Search</button>
+current weather in : <input matInput placeholder="Ex. Paris" [(ngModel)]="cityName" />
+<button mat-button (click)="onGetWeather()">Search</button>
+      <p>Date : {{today | date:'dd/MM/yyyy':'+0200'}}</p>
       <p>Temperature : {{weather.temp}} °C</p>
       <p>Feels like : {{weather.feels_like}} °C</p>
-    </div>
-  </mat-card-content>
-</mat-card>
+      
