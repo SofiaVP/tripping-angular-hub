@@ -13,13 +13,17 @@ export class WeatherForcastComponent implements OnInit {
   ngOnInit(): void {
   }
 
+//>>>>>>>>>>>>>>>>>>>>>> I need to find a way to find coordinates by location, my idea would be to 
+//>>>>>>>>>>>>>>>>>>>>>> use the method recupererWeather (that incidently should be called feachWeatherByName)
+//>>>>>>>>>>>>>>>>>>>>>> and then do this.weather.cords, il faut changer la méthode pour qu'elle retourne un completeweather et non pas un weather
+
   // fetchLocationByCoords(coords) {
     
   //   const { lat, lng } = coords; // Event from click on map
   //   this.weatherService.fetchWeatherByCoords(lat, lng).subscribe((data) => {
   //     this.weatherData = data;
   //     this.userGeoTimezone = data.timezone;
-  //     //  console.log(data);
+  //      console.log(data);
   //     this.fetchLocationTimes(data);
   //     this.fetchAllSearchedLocations();
   //   }, (error) => {

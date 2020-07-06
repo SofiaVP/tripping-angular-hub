@@ -1,12 +1,20 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Weather } from '../data/weather';
 import { Observable } from 'rxjs';
+import { CompleteWeather } from '../data/complete-weather';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WeatherService {
+
+  fetchWeatherByCoords(lat: number, lon: number):  Observable<CompleteWeather>{
+
+    let url = `http://localhost:8282/weather-api/forcast/`+`${lat}`+`/`+`${lon}`
+    console.log("In service, lat = " + lat + " lon = " + lon+ " url = "+ url);    
+    return this.http.get<CompleteWeather>(url)
+  }
 
   weather: Weather
 

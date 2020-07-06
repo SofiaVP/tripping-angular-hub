@@ -1,6 +1,6 @@
 current weather in : <input matInput placeholder="Ex. Paris" [(ngModel)]="cityName" />
 <button mat-button (click)="onGetWeather()">Search</button>
-      <p>Date : {{today | date:'dd/MM/yyyy':'+0200'}}</p>
+      <p>Date : {{today | date:'dd/MM/yyyy ':'+0200'}}</p>
       <p>Temperature : {{weather.temp}} °C</p>
       <p>Feels like : {{weather.feels_like}} °C</p>
       

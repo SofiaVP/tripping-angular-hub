@@ -37,6 +37,10 @@ import { AboutMyTripComponent } from './about-my-trip/about-my-trip.component';
 import { MainTripInfoComponent } from './about-my-trip/main-trip-info/main-trip-info.component';
 import { ExtraTripInfoComponent } from './about-my-trip/extra-trip-info/extra-trip-info.component';
 import { WeatherForcastComponent } from './basic/weather/weather-forcast/weather-forcast.component';
+import { ClothesComponent } from './lists/clothes/clothes.component';
+import { ToiletriesComponent } from './lists/toiletries/toiletries.component';
+import { EntretainmentComponent } from './lists/entretainment/entretainment.component';
+import { VitalStuffComponent } from './lists/vital-stuff/vital-stuff.component';
 
 
 @NgModule({
@@ -53,7 +57,11 @@ import { WeatherForcastComponent } from './basic/weather/weather-forcast/weather
     AboutMyTripComponent,
     MainTripInfoComponent,
     ExtraTripInfoComponent,
-    WeatherForcastComponent
+    WeatherForcastComponent,
+    ClothesComponent,
+    ToiletriesComponent,
+    EntretainmentComponent,
+    VitalStuffComponent
   ],
   imports: [
     BrowserModule,
