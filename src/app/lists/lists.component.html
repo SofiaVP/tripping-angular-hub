@@ -1,32 +1,82 @@
-<p>lists works!</p>
+<mat-label>New tab name </mat-label>
+<input matInput type="text" [(ngModel)]="tabName">
 
+<button mat-raised-button matTooltip="Add new list {{tabName}}" class="example-add-tab-button" (click)="addTab(tabName)">	<mat-icon>playlist_add</mat-icon>
+  
+</button>
 
-    <mat-label>New tab name </mat-label>
-    <input matInput type="text" [(ngModel)]="tabName">
+<mat-tab-group [selectedIndex]="selected.value" (selectedIndexChange)="selected.setValue($event)"  
+                ngModel [ngModelOptions]="{tabCat: 'tab'}">
+  <mat-tab *ngFor="let tab of tabs; let index = index" [label]="tab" >
+    
+    <button mat-raised-button matTooltip="Refresh {{tab}}" (click)= "fetchingItemsByCategory(tab)" >	<mat-icon>refresh</mat-icon> </button>
+    <button mat-raised-button matTooltip="Delete {{tab}}" class="example-delete-tab-button" [disabled]="tabs.length === 1" (click)="removeTab(index, tab)"> <mat-icon>delete_outline</mat-icon></button>
+   
+    <!-- [(tabCat)]={{tab}} -->
+    
 
-<button mat-raised-button class="example-add-tab-button" (click)="addTab(tabName)">
-    Add new tab
-  </button>
+    <table >
+      <!-- +++ Heders row +++ -->
+      <tr>
+        <th> Item</th>
+        <th> Quantity</th>
+        <th> Done </th>
+        <th> Actions </th>
+      </tr>
 
-  <mat-tab-group [selectedIndex]="selected.value"
-               (selectedIndexChange)="selected.setValue($event)">
-  <mat-tab *ngFor="let tab of tabs; let index = index" [label]="tab">
-    Contents for {{tab}} tab
+      <!-- +++ item row +++ -->
+      <tr *ngFor="let i of listeItemsByCategory">
+        <td>
+          <input matInput type="text" [(ngModel)]=i.itemLabel>
+        </td>
+        <td>
+          <input matInput type="text" [(ngModel)]=i.quantity>
+        </td>
+        <td>
+          <div *ngIf="i.inBag ; else elseBlock">
+            <input type="checkbox" [(ngModel)]= "i.inBag" checked > 
+          </div>
+          <ng-template #elseBlock>
+            <input id="checkBoxInBag" type="checkbox" [(ngModel)]= "i.inBag">
+          </ng-template>
+        </td>
+        <td> 
+          <button mat-raised-button matTooltip="Save changes to {{i.itemLabel}} "> <mat-icon>save_alt</mat-icon></button>
+          <button mat-raised-button matTooltip="Delete {{i.itemLabel}} " (click) ="onDeleteItem(i.itemLabel)" ><mat-icon>delete_outline</mat-icon> </button>
+        </td>
+        
+      </tr>
+      <tr>
+        <td>
+          <input matInput type="text" [(ngModel)]="newItemLabel">
+        </td>    
+        <td>
+          <input matInput type="text" [(ngModel)]="newItemQuantity">
+        </td>   
+         <td>
+          <input type="checkbox" [(ngModel)]="newItemInBag" #selectInBag>
+          <!-- <input type="checkbox" #selectInBag> -->
+        </td> 
+        <td> 
+          <button mat-raised-button matTooltip="add item in {{tab}}" (click)="addItem(tab, selectInBag.checked)" ><mat-icon>add</mat-icon></button>
+        </td>
+        
+      </tr>
+    </table>
+    <!-- 
+    <div *ngIf="{{i.inBag}}; else elseBlock">Done</div>
+          <ng-template #elseBlock>to be done</ng-template> -->
 
-    <button mat-raised-button
-            class="example-delete-tab-button"
-            [disabled]="tabs.length === 1"
-            (click)="removeTab(index)">
-      Delete Tab
-    </button>
+    <!-- <input type="checkbox" ng-model="checkboxModel.value1"
+          ng-true-value="'YES'" ng-false-value="'NO'">
+          <label>value1 = {{checkboxModel.value1}}</label><br/> -->
+
+    <!-- <button (click)="show = !show">{{show ? 'hide' : 'show'}}</button>
+    show = {{show}}
+    <br>
+    <div *ngIf="show">Text to show</div> -->
+
+ 
+    
   </mat-tab>
 </mat-tab-group>
-
-<!-- <mat-tab-group>
-    <mat-tab label="Clothes"> <app-clothes></app-clothes></mat-tab>
-    <mat-tab label="Toiletries"></mat-tab>
-    <mat-tab label="Entretainment"></mat-tab>
-    <mat-tab label="Vital stuff"></mat-tab>
-</mat-tab-group> -->
-  
-  

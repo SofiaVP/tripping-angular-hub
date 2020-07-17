@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'; 
+import { CommonModule } from "@angular/common";
 
 import {MatCardModule} from '@angular/material/card';
 import {MatRadioModule} from '@angular/material/radio';
@@ -13,6 +14,8 @@ import {MatListModule} from '@angular/material/list';
 import {MatTableModule} from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
+import {MatCheckboxModule} from '@angular/material/checkbox'; 
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -36,12 +39,10 @@ import { UserComponent } from './user/user.component';
 import { AboutMyTripComponent } from './about-my-trip/about-my-trip.component';
 import { MainTripInfoComponent } from './about-my-trip/main-trip-info/main-trip-info.component';
 import { ExtraTripInfoComponent } from './about-my-trip/extra-trip-info/extra-trip-info.component';
-import { WeatherForcastComponent } from './basic/weather/weather-forcast/weather-forcast.component';
-import { ClothesComponent } from './lists/clothes/clothes.component';
-import { ToiletriesComponent } from './lists/toiletries/toiletries.component';
-import { EntretainmentComponent } from './lists/entretainment/entretainment.component';
-import { VitalStuffComponent } from './lists/vital-stuff/vital-stuff.component';
+import { WeatherforecastComponent } from './basic/weather/weather-forecast/weather-forecast.component';
 
+import { CheckBoxModule } from '@syncfusion/ej2-angular-buttons';
+import { ForecastComponent } from './forecast/forecast.component';
 
 @NgModule({
   declarations: [
@@ -57,14 +58,12 @@ import { VitalStuffComponent } from './lists/vital-stuff/vital-stuff.component';
     AboutMyTripComponent,
     MainTripInfoComponent,
     ExtraTripInfoComponent,
-    WeatherForcastComponent,
-    ClothesComponent,
-    ToiletriesComponent,
-    EntretainmentComponent,
-    VitalStuffComponent
+    WeatherforecastComponent,
+    ForecastComponent
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule, 
     FormsModule, 
     BrowserAnimationsModule,   
@@ -81,9 +80,12 @@ import { VitalStuffComponent } from './lists/vital-stuff/vital-stuff.component';
     MatFormFieldModule,
     MatNativeDateModule,
     MatIconModule,
+    MatCheckboxModule,
+    MatTooltipModule,
     NgxMatDrpModule,
     FlexLayoutModule,
-    HttpClientModule
+    HttpClientModule,
+    CheckBoxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

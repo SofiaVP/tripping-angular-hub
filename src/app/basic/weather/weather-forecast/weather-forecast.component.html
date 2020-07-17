@@ -1,0 +1,67 @@
+<p>weather-forecast works!</p>
+
+<mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input matInput placeholder="Ex. London">
+    <button (click)="onFetchforecastByCityName()"> search</button>
+</mat-form-field>    
+
+<table>
+    <tr *ngfor="let f of forecast ">
+        {{f.date}}
+        <br/>
+        {{f.temp}}
+        <br/>
+        {{f.feels_like}}
+    </tr>
+</table>
+
+<!-- <div class="card-colums">
+    <div *ngfor="let f of forecast ">
+        <div class="card-body">
+            {{f.date}}
+            <br/>
+            {{f.temp}}
+            <br/>
+            {{f.feels_like}}
+        </div>
+    </div>
+</div> -->
+
+<!-- <dst-days card">
+        <div id="day1-date"></div>
+        <div id="day1-temiv class="row text-center" id="forecast">
+    <div class="forecap"></div>
+        <img id=day1-icon>
+    </div>
+    <div class="forecast-days card">
+        <div id="day2-date"></div>
+        <div id="day2-temp"></div>
+        <img id=day2-icon>
+    </div>
+    <div class="forecast-days card">
+        <div id="day3-date"></div>
+        <div id="day3-temp"></div>
+        <img id=day3-icon>
+    </div>
+    <div class="forecast-days card">
+        <div id="day4-date"></div>
+        <div id="day4-temp"></div>
+        <img id=day4-icon>
+    </div>
+    <div class="forecast-days card">
+        <div id="day5-date"></div>
+        <div id="day5-temp"></div>
+        <img id=day5-icon>
+    </div>
+    <div class="forecast-days card">
+        <div id="day6-date"></div>
+        <div id="day6-temp"></div>
+        <img id=day6-icon>
+    </div>
+    <div class="forecast-days card">
+        <div id="day7date"></div>
+        <div id="day7-temp"></div>
+        <img id=day7-icon>
+    </div>
+</div> -->
