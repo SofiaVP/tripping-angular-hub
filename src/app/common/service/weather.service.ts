@@ -12,7 +12,8 @@ import { map , flatMap ,toArray ,filter} from 'rxjs/operators';
 export class WeatherService {
 
   constructor(private http: HttpClient) { }
-  baseURL = 'http://localhost:8282';
+  
+  baseURL = 'http://localhost:8282'; //dev
 
   public fetchWeatherforecastByCityname(cityname: String) :Observable<SingleWeatherforecast[]> {
     let url = `${this.baseURL}`+`/weather-api/public/forecastbycity/`+`${cityname}`; 
