@@ -1,12 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, HostBinding } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
-})
+})  
 export class AppComponent {
-  title = 'my-trip-test';
+ 
+  private isDark = true;
+
+  @HostBinding('class')
+  get themeMode(){
+    return this.isDark ? 'theme-dark' : 'theme-light';
+  }
+ 
+  switchMode(isDarkMode : boolean){
+    this.isDark = isDarkMode;
+  }
 
   
 }

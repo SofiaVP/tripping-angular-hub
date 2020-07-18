@@ -12,13 +12,10 @@
     <button mat-raised-button matTooltip="Refresh {{tab}}" (click)= "fetchingItemsByCategory(tab)" >	<mat-icon>refresh</mat-icon> </button>
     <button mat-raised-button matTooltip="Delete {{tab}}" class="example-delete-tab-button" [disabled]="tabs.length === 1" (click)="removeTab(index, tab)"> <mat-icon>delete_outline</mat-icon></button>
    
-    <!-- [(tabCat)]={{tab}} -->
-    
-
-    <table >
+    <table class="full-width-table" >
       <!-- +++ Heders row +++ -->
       <tr>
-        <th> Item</th>
+        <th > Item</th>
         <th> Quantity</th>
         <th> Done </th>
         <th> Actions </th>
@@ -63,18 +60,7 @@
         
       </tr>
     </table>
-    <!-- 
-    <div *ngIf="{{i.inBag}}; else elseBlock">Done</div>
-          <ng-template #elseBlock>to be done</ng-template> -->
-
-    <!-- <input type="checkbox" ng-model="checkboxModel.value1"
-          ng-true-value="'YES'" ng-false-value="'NO'">
-          <label>value1 = {{checkboxModel.value1}}</label><br/> -->
-
-    <!-- <button (click)="show = !show">{{show ? 'hide' : 'show'}}</button>
-    show = {{show}}
-    <br>
-    <div *ngIf="show">Text to show</div> -->
+  
 
  
     

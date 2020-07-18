@@ -1,39 +1,4 @@
-<div id="app-component-div">
+<app-navigation (darkModeSwitched)="switchMode($event)"></app-navigation>
+<!-- <router-outlet></router-outlet> -->
 
-    <header class="header">
-        <!-- <app-header></app-header> -->
-        <!-- <img src="../assets/copenhague.jpg"/> -->
-    </header>
-    <!-- selectors found in component.ts -->
-    <div class="sider">
-        <app-sider></app-sider>
-    </div>
-    <!-- <app-test></app-test> -->
 
-    
-
-    <div class="basic">
-        <!-- <app-lists></app-lists>  -->
-        <mat-card fxFlex="0 1 calc(33.3% - 32px)"
-        fxFlex.lt-md="0 1 calc(50% - 32px)"
-        fxFlex.lt-sm="100%">
-
-            <app-lists></app-lists> 
-        </mat-card>
-            <mat-card fxFlex="0 1 calc(33.3% - 32px)"
-            fxFlex.lt-md="0 1 calc(50% - 32px)"
-            fxFlex.lt-sm="100%">
-
-                <app-forecast></app-forecast>
-                
-                <app-about-my-trip></app-about-my-trip>
-            </mat-card>
-        <!-- <app-basic></app-basic> -->
-    </div>
-    
-    <!-- <footer class="footer">
-        <app-footer></app-footer> 
-    </footer> -->
-</div>
-
-<router-outlet></router-outlet>

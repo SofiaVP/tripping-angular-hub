@@ -16,7 +16,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCheckboxModule} from '@angular/material/checkbox'; 
 import {MatTooltipModule} from '@angular/material/tooltip';
-
+import {MatSlideToggleModule} from '@angular/material/slide-toggle'; 
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { NgxMatDrpModule } from 'ngx-mat-daterange-picker';
@@ -43,6 +43,18 @@ import { WeatherforecastComponent } from './basic/weather/weather-forecast/weath
 
 import { CheckBoxModule } from '@syncfusion/ej2-angular-buttons';
 import { ForecastComponent } from './forecast/forecast.component';
+import { NavigationComponent } from './navigation/navigation.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { TableTestComponent } from './table-test/table-test.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatMenuModule } from '@angular/material/menu';
+import { DashbordMyTripComponent } from './dashbord-my-trip/dashbord-my-trip.component';
+import { DashbordListsComponent } from './dashbord-lists/dashbord-lists.component';
+import { DashbordWelcomeComponent } from './dashbord-welcome/dashbord-welcome.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +71,12 @@ import { ForecastComponent } from './forecast/forecast.component';
     MainTripInfoComponent,
     ExtraTripInfoComponent,
     WeatherforecastComponent,
-    ForecastComponent
+    ForecastComponent,
+    NavigationComponent,
+    TableTestComponent,
+    DashbordListsComponent,
+    DashbordMyTripComponent,
+    DashbordWelcomeComponent
   ],
   imports: [
     BrowserModule,
@@ -82,10 +99,17 @@ import { ForecastComponent } from './forecast/forecast.component';
     MatIconModule,
     MatCheckboxModule,
     MatTooltipModule,
+    MatSlideToggleModule,
     NgxMatDrpModule,
     FlexLayoutModule,
     HttpClientModule,
-    CheckBoxModule
+    CheckBoxModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatGridListModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
