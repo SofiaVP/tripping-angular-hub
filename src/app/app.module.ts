@@ -55,6 +55,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { DashbordMyTripComponent } from './dashbord-my-trip/dashbord-my-trip.component';
 import { DashbordListsComponent } from './dashbord-lists/dashbord-lists.component';
 import { DashbordWelcomeComponent } from './dashbord-welcome/dashbord-welcome.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -76,7 +77,8 @@ import { DashbordWelcomeComponent } from './dashbord-welcome/dashbord-welcome.co
     TableTestComponent,
     DashbordListsComponent,
     DashbordMyTripComponent,
-    DashbordWelcomeComponent
+    DashbordWelcomeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

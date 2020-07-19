@@ -8,7 +8,7 @@ import { User } from '../common/data/user';
 })
 export class UserComponent implements OnInit {
 
-  user : User = new User('David', 'David', '123', "ddl.leo@gmail.com");
+  // user : User = new User('David', 'David', '123', "ddl.leo@gmail.com");
 
   constructor() { }
 
