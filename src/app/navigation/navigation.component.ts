@@ -20,9 +20,20 @@ export class NavigationComponent {
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(private breakpointObserver: BreakpointObserver) {
+    console.log("conected user ==========>"+sessionStorage.getItem("user"));
+  }
 
   onDarkModeSwitched({checked} : MatSlideToggleChange){
     this.darkModeSwitched.emit(checked);
+  }
+
+  isSignedIn : boolean ; 
+
+  getSignedInStatus (){
+    if (sessionStorage.getItem("user")){
+      console.log("conected user ==========>"+sessionStorage.getItem("user"));
+
+    }
   }
 }

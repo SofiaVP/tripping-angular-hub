@@ -1,0 +1,80 @@
+<form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()">
+  <mat-card class="shipping-card">
+    <mat-card-header>
+      <mat-card-title>Register</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+
+      <div class="row" >
+        <!-- REQUIRED -->
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Username" formControlName="username" [(ngModel)]="user.username">
+            <mat-error *ngIf="addressForm.controls['username'].hasError('required')">
+              Username is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+          <!-- ///////// -->
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Password (optional)" formControlName="password" [(ngModel)]="user.password">
+            <mat-error *ngIf="addressForm.controls['password'].hasError('required')">
+              Password is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+     
+    
+
+      <div class="row" *ngIf="!hasExtraInfoUser">
+        <div class="col">
+          <button mat-button type="button" (click)="hasExtraInfoUser = !hasExtraInfoUser">
+            + More info (you can do this later as well)
+          </button>
+        </div>
+      </div>
+      
+      <div *ngIf="hasExtraInfoUser">
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="First name" formControlName="firstName">
+              <mat-error *ngIf="addressForm.controls['firstName'].hasError('required')">
+                First name is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Last name" formControlName="lastName">
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row" >
+            <div class="col">
+              <mat-form-field class="full-width">
+                <input matInput placeholder="email" formControlName="email" [(ngModel)]="user.email">
+              </mat-form-field>
+            </div>        
+        </div>
+      
+        <div class="row">
+          <div class="col">
+            <mat-radio-group formControlName="gender">
+              <mat-radio-button value="female">Female</mat-radio-button>
+              <mat-radio-button value="male">Male</mat-radio-button>
+              <mat-radio-button value="whocares">Who cares ?</mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </div>
+         
+      </div>
+
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit">Submit</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

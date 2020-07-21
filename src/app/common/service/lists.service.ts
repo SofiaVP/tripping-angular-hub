@@ -12,13 +12,19 @@ import { stringify } from 'querystring';
 })
 export class ListsService {
 
-  //  baseURL = 'https://tripping-ms-lists.herokuapp.com';
-   baseURL = 'http://localhost:9998';
+   baseURL = 'https://tripping-ms-lists.herokuapp.com';
+  //  baseURL = 'http://localhost:9998';
 
   constructor(private http: HttpClient) {
     //const BASE_URL = process.env.BASE_URL;
-   }
+  }
   
+  
+  public fetchListsByUser(user: string): Observable<Liste[]>{
+    let url = `${this.baseURL}`+`/tripping/lists/findListsByUser/`+`${user}`;
+    console.log("dans listsService dans la méthode fetchListsByUser, url = " + url);
+    return this.http.get<Liste[]>(url);
+  } 
 
   public fetchItems(): Observable<Item[]>{
     let url = `${this.baseURL}`+`/tripping/lists/item/findAllItems`;
@@ -45,6 +51,18 @@ export class ListsService {
     console.log(url)
     return this.http.get<number>(url);
   }
+  
+  public fetchListByCategoryAndUser(category : string, user: String): Observable<Liste>{
+    let url = `${this.baseURL}`+`/tripping/lists/findListByCategoryAndUser/category/`+`${category}`+`/user/`+`${user}`;
+    console.log("dans listsService dans la méthode fetchListByCategoryAndUser, url = " + url)
+    return this.http.get<Liste>(url);
+  }
+
+  public fetchItemsByCategoryAndUser(category : string, user: String): Observable<Item[]>{
+    let url = `${this.baseURL}`+`/tripping/lists/items/findItemsByListeCategory/category/`+`${category}`+`/user/`+`${user}`;
+    console.log("dans listsService dans la méthode fetchItemsByCategoryAndUser, url = " + url);
+    return this.http.get<Item[]>(url);
+  }
 
   public createNewList(newListe : Liste){
     let url = `${this.baseURL}`+`/tripping/lists/createList`;
@@ -53,8 +71,8 @@ export class ListsService {
   }
 
   public createNewItem(newItem : Item){
-    console.log("in listsService method createnewItem, newItem = "+ JSON.stringify(newItem) )
     let url = `${this.baseURL}`+`/tripping/lists/item/createItem`
+    console.log("in listsService method createnewItem, "+ url+ " newItem = "+ JSON.stringify(newItem) )
     return this.http.post<Item>(url, newItem);
   }
 

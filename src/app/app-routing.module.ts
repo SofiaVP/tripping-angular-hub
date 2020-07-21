@@ -7,6 +7,8 @@ import { DashbordListsComponent } from './dashbord-lists/dashbord-lists.componen
 import { NavigationComponent } from './navigation/navigation.component';
 import { DashbordWelcomeComponent } from './dashbord-welcome/dashbord-welcome.component';
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { DragAndDropComponent } from './drag-and-drop/drag-and-drop.component';
 
 
 const routes: Routes = [
@@ -23,8 +25,10 @@ const routes: Routes = [
   { path: 'tripping-trip', component: DashbordMyTripComponent},
   { path: 'tripping-list', component: DashbordListsComponent},
   { path: 'tripping-login', component: LoginComponent},
+  { path: 'tripping-register', component: RegisterComponent},
+  { path: 'tripping-to-do', component: DragAndDropComponent},
 
-  { path: '', redirectTo: '/tripping-welcome', pathMatch: 'full'},
+  { path: '', redirectTo: '/tripping-login', pathMatch: 'full'},
 
   
  

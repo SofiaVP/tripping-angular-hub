@@ -5,7 +5,8 @@ export class Item {
         public quantity: number ,
         public liste: {
                 id: number,
-                category: string //this is optional, but not the id
+                category: string,
+                user : string //this is optional, but not the id
             },
         public inBag: boolean,
 ){}

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; 
 import { CommonModule } from "@angular/common";
 
 import {MatCardModule} from '@angular/material/card';
@@ -19,6 +19,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle'; 
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatBadgeModule} from '@angular/material/badge'; 
 import { NgxMatDrpModule } from 'ngx-mat-daterange-picker';
 
 
@@ -56,6 +58,11 @@ import { DashbordMyTripComponent } from './dashbord-my-trip/dashbord-my-trip.com
 import { DashbordListsComponent } from './dashbord-lists/dashbord-lists.component';
 import { DashbordWelcomeComponent } from './dashbord-welcome/dashbord-welcome.component';
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { MatSelectModule } from '@angular/material/select';
+import { FormTestComponent } from './form-test/form-test.component';
+import { DragAndDropComponent } from './drag-and-drop/drag-and-drop.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -78,7 +85,10 @@ import { LoginComponent } from './login/login.component';
     DashbordListsComponent,
     DashbordMyTripComponent,
     DashbordWelcomeComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent,
+    FormTestComponent,
+    DragAndDropComponent
   ],
   imports: [
     BrowserModule,
@@ -102,6 +112,8 @@ import { LoginComponent } from './login/login.component';
     MatCheckboxModule,
     MatTooltipModule,
     MatSlideToggleModule,
+    MatSnackBarModule,
+    MatBadgeModule,
     NgxMatDrpModule,
     FlexLayoutModule,
     HttpClientModule,
@@ -111,7 +123,10 @@ import { LoginComponent } from './login/login.component';
     MatPaginatorModule,
     MatSortModule,
     MatGridListModule,
-    MatMenuModule
+    MatMenuModule,
+    MatSelectModule,
+    ReactiveFormsModule,
+    DragDropModule
   ],
   providers: [],
   bootstrap: [AppComponent]

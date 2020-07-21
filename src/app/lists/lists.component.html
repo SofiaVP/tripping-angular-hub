@@ -1,16 +1,40 @@
-<mat-label>New tab name </mat-label>
-<input matInput type="text" [(ngModel)]="tabName">
 
-<button mat-raised-button matTooltip="Add new list {{tabName}}" class="example-add-tab-button" (click)="addTab(tabName)">	<mat-icon>playlist_add</mat-icon>
+
+<mat-form-field class="example-form-field">
+  <mat-label>New tab name </mat-label>
+  <input matInput type="text" [(ngModel)]="tabName">
+</mat-form-field>
+
+<button mat-raised-button matTooltip="Add new list {{tabName}}" class="example-add-tab-button" (click)="addTab(tabName)">	<mat-icon>playlist_add</mat-icon></button>
+
+<ul fxLayout="row" fxLayoutGap="10px" >
+  <div>
+    <button mat-raised-button matBadge="✔️" [matBadgeHidden]="hiddenBeach" (click)="addBeach()">Beach 	<mat-icon>beach_access</mat-icon></button>
+  </div>
+  <div>
+    <button mat-raised-button matBadge="✔️" [matBadgeHidden]="hidden" (click)="comingSoon()">Sports	<mat-icon> directions_run</mat-icon></button>
+  </div>
+  <div>
+    <button mat-raised-button matBadge="✔️" [matBadgeHidden]="hidden" (click)="comingSoon()">Ski	<mat-icon>ac_unit</mat-icon></button>
+  </div>
+  <div>
+    <button mat-raised-button matBadge="✔️" [matBadgeHidden]="hidden" (click)="comingSoon()">Camping	<mat-icon>airport_shuttle</mat-icon></button>
+  </div>
   
-</button>
+</ul>
 
-<mat-tab-group [selectedIndex]="selected.value" (selectedIndexChange)="selected.setValue($event)"  
-                ngModel [ngModelOptions]="{tabCat: 'tab'}">
+  
+
+<mat-tab-group [selectedIndex]="selected.value" (selectedIndexChange)="selected.setValue($event)" mat-align-tabs="center"  ngModel [ngModelOptions]="{tabCat: 'tab'}">
   <mat-tab *ngFor="let tab of tabs; let index = index" [label]="tab" >
-    
-    <button mat-raised-button matTooltip="Refresh {{tab}}" (click)= "fetchingItemsByCategory(tab)" >	<mat-icon>refresh</mat-icon> </button>
-    <button mat-raised-button matTooltip="Delete {{tab}}" class="example-delete-tab-button" [disabled]="tabs.length === 1" (click)="removeTab(index, tab)"> <mat-icon>delete_outline</mat-icon></button>
+    <ul fxLayout="row" fxLayoutGap="10px" >
+      <div>
+        <button mat-raised-button matTooltip="Refresh {{tab}}" (click)= "fetchingItemsByCategoryAndUser(tab)" >	<mat-icon>refresh</mat-icon> </button>
+      </div>
+      <div>
+        <button mat-raised-button matTooltip="Delete {{tab}}" class="example-delete-tab-button" [disabled]="tabs.length === 1" (click)="removeTab(index, tab)"> <mat-icon>delete_outline</mat-icon></button>
+      </div>
+    </ul>
    
     <table class="full-width-table" >
       <!-- +++ Heders row +++ -->
@@ -24,34 +48,42 @@
       <!-- +++ item row +++ -->
       <tr *ngFor="let i of listeItemsByCategory">
         <td>
-          <input matInput type="text" [(ngModel)]=i.itemLabel>
+          <!-- <input matInput type="text" [(ngModel)]=i.itemLabel> -->
+          {{i.itemLabel}}
         </td>
         <td>
-          <input matInput type="text" [(ngModel)]=i.quantity>
+          <!-- <input matInput type="text" [(ngModel)]=i.quantity> -->
+          {{i.quantity}}
         </td>
         <td>
           <div *ngIf="i.inBag ; else elseBlock">
-            <input type="checkbox" [(ngModel)]= "i.inBag" checked > 
+            <mat-checkbox type="checkbox" [(ngModel)]= "i.inBag" checked > </mat-checkbox>
           </div>
           <ng-template #elseBlock>
-            <input id="checkBoxInBag" type="checkbox" [(ngModel)]= "i.inBag">
+            <mat-checkbox id="checkBoxInBag" type="checkbox" [(ngModel)]= "i.inBag"></mat-checkbox>
           </ng-template>
         </td>
         <td> 
-          <button mat-raised-button matTooltip="Save changes to {{i.itemLabel}} "> <mat-icon>save_alt</mat-icon></button>
+          <button mat-raised-button matTooltip="Save changes to {{i.itemLabel}} "> <mat-icon>edit</mat-icon></button>
           <button mat-raised-button matTooltip="Delete {{i.itemLabel}} " (click) ="onDeleteItem(i.itemLabel)" ><mat-icon>delete_outline</mat-icon> </button>
         </td>
         
       </tr>
       <tr>
         <td>
-          <input matInput type="text" [(ngModel)]="newItemLabel">
+          <mat-form-field class="example-form-field">
+            <mat-label>Item Label</mat-label>
+            <input matInput type="text" [(ngModel)]="newItemLabel">
+          </mat-form-field>
         </td>    
         <td>
-          <input matInput type="text" [(ngModel)]="newItemQuantity">
+          <mat-form-field class="example-form-field">
+            <mat-label>Quantity</mat-label>
+            <input matInput type="number" [(ngModel)]="newItemQuantity">
+          </mat-form-field>
         </td>   
          <td>
-          <input type="checkbox" [(ngModel)]="newItemInBag" #selectInBag>
+          <mat-checkbox type="checkbox" [(ngModel)]="newItemInBag" #selectInBag></mat-checkbox>
           <!-- <input type="checkbox" #selectInBag> -->
         </td> 
         <td> 
