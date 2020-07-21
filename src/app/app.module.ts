@@ -63,6 +63,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { FormTestComponent } from './form-test/form-test.component';
 import { DragAndDropComponent } from './drag-and-drop/drag-and-drop.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { DashbordTestComponent } from './dashbord-test/dashbord-test.component';
 
 @NgModule({
   declarations: [
@@ -88,7 +89,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     LoginComponent,
     RegisterComponent,
     FormTestComponent,
-    DragAndDropComponent
+    DragAndDropComponent,
+    DashbordTestComponent
   ],
   imports: [
     BrowserModule,

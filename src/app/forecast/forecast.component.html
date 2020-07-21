@@ -1,64 +1,37 @@
-<p>forecast works!</p>
-<input type="text" [(ngModel)]="city" >
-<button (click)="onFetchforecastByCityName()">Search</button>
-<!-- <table>
-    <tr>
-        <th>date</th>
-        <th>temp</th>
-        <th>feels like</th>
-    </tr>
-    <tr *ngFor="let f of forecast ">
-        <td>{{f.date}}</td>
-        <td>{{f.temp}}</td>
-        <td>{{f.feels_like}}</td>
-        
-        
-    </tr>
-</table> -->
-<div>
-
-
-<mat-card 
-  fxFlex="0 1 calc(33.3% - 32px)"
-  fxFlex.lt-md="0 1 calc(50% - 32px)"
-  fxFlex.lt-sm="100%" 
-  *ngFor="let f of forecast ">  
-  
-<mat-card-subtitle>
-
-    
-        <!-- <div mat-card-avatar class="example-header-image"  ></div> -->
-        <div id="weather-icon" >
-            <img src={{f.icon}} style="float:center;width:42px;height:42px;"></div>
-        
-    </mat-card-subtitle>
-
-    <mat-card-content>
-        {{f.date | date:'fullDate'}}
-        <br/>
-    </mat-card-content>
-    <mat-card-content>
-        Temperature : {{f.temp}} °C
-        <br/>
-    </mat-card-content>
-    <mat-card-content>
-        Feels like : {{f.feels_like}} °C
-        <br/>
-    </mat-card-content>
-      
-        
-
-</mat-card>
-</div>
-<!-- <div class="card-colums">
-    <div *ngFor="let f of forecast ">
-        <div class="card-body">
-            {{f.date}}
-            <br/>
-            {{f.temp}}
-            <br/>
-            {{f.feels_like}}
-        </div>
+<!-- <div fxLayout="column" fxLayoutAlign="space-evenly center"> -->
+    <h2>Weather forecast</h2>
+    <div fxLayout="row" fxLayoutAlign="center center" >
+        <mat-form-field class="example-form-field">
+            <mat-label>City </mat-label>
+            <input matInput type="text" [(ngModel)]="city">
+        </mat-form-field>
+        <button mat-raised-button (click)="onFetchforecastByCityName()">
+            <mat-icon>search</mat-icon>
+        </button> 
     </div>
-</div> -->
-<!-- <span *ngIf="i % 5 === 0"></span>  ++++ dans la boucle ngFor -> let i = index +++++-->
+
+    <br/>
+    <div fxLayout="row" fxLayoutAlign="space-evenly center">
+        <!-- <mat-card fxFlex="0 1 calc(33.3% - 32px)" fxFlex.lt-md="0 1 calc(50% - 32px)" fxFlex.lt-sm="100%"
+            *ngFor="let f of forecast "> -->
+        <mat-card *ngFor="let f of forecast ">
+            <mat-card-title >
+                <div id="weather-icon">
+                    <img src={{f.icon}} style="float:center;width:45px;height:45px;">
+                </div>
+            </mat-card-title>
+            <mat-card-content>
+                {{f.date | date:'fullDate'}}
+                <br />
+            </mat-card-content>
+            <mat-card-content>
+                Temperature : {{f.temp}} °C
+                <br />
+            </mat-card-content>
+            <mat-card-content>
+                Feels like : {{f.feels_like}} °C
+                <br />
+            </mat-card-content>
+        </mat-card>
+    </div>
+<!-- </div> -->

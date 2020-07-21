@@ -11,6 +11,7 @@ import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 })
 export class NavigationComponent {
 
+  user = sessionStorage.getItem("user");
   @Output()
   readonly darkModeSwitched = new EventEmitter<boolean>();
 

@@ -44,7 +44,7 @@ export class ForecastComponent implements OnInit {
     
     // locationIcon.innerHTML = `<img src="../common/images/${this.iconURL}.png">`;
     // locationIcon.innerHTML ="../common/images/icons/" +this.iconURL+ ".png' alt='Icon depicting current weather.'>"
-    //this.onFetchforecastByCityName();
+    this.onFetchforecastByCityName();
   }
 
 }

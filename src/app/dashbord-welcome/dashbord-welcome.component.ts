@@ -13,18 +13,18 @@ export class DashbordWelcomeComponent {
     map(({ matches }) => {
       if (matches) {
         return [
-          { title: 'Trip', url:'/tripping-trip', picture:'../assets/images/roadtrip.png', cols: 1, rows: 1 },
-          { title: 'Lists', url:'/tripping-list', picture:'../assets/images/perfectpacking.jpg', cols: 1, rows: 2 },
-          { title: 'Traveling Jokes',url:'', picture:'../assets/images/lastminutepackingchallengeaccepted.jpg', cols: 2, rows: 1 },
-          { title: 'User', url:'', picture:'../assets/images/users.jpg', cols: 2, rows: 2 }
+          { title: 'Luggage', url:'/tripping-list', picture:'../assets/gifs/luggage 1.gif', cols: 1, rows: 1 },
+          { title: 'Weather forecast', url:'/tripping-weather"', picture:'../assets/gifs/weather1.gif', cols: 1, rows: 1 },
+          { title: 'To Do', url:'/tripping-to-do', picture:'../assets/gifs/todo.gif', cols: 1, rows: 1 },
+          { title: 'User Information',url:'/tripping-user', picture:'../assets/gifs/user1.gif', cols: 1, rows: 1 }
         ];
       }
 
       return [
-        { title: 'Trip', url:'/tripping-trip', picture:'../assets/images/roadtrip.png', cols: 1, rows: 1 },
-        { title: 'Lists', url:'/tripping-list', picture:'../assets/images/perfectpacking.jpg', cols: 1, rows: 2 },
-        { title: 'Traveling Jokes',url:'', picture:'../assets/images/lastminutepackingchallengeaccepted.jpg', cols: 2, rows: 1 },
-        { title: 'User', url:'', picture:'../assets/images/users.jpg', cols: 2, rows: 2 },
+        { title: 'Luggage', url:'/tripping-list', picture:'../assets/gifs/luggage 1.gif', cols: 1, rows: 1 },
+        { title: 'Weather forecast', url:'/tripping-weather', picture:'../assets/gifs/weather1.gif', cols: 1, rows: 1 },
+        { title: 'To Do', url:'/tripping-to-do', picture:'../assets/gifs/todo.gif', cols: 1, rows: 1 },
+        { title: 'User Information',url:'/tripping-user', picture:'../assets/gifs/user1.gif', cols: 1, rows: 1 }
       ];
     })
   );

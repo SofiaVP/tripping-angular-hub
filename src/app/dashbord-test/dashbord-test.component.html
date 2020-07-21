@@ -1,14 +1,11 @@
 <div class="grid-container">
-  <mat-grid-list cols="2" rowHeight="200px">
+  <h1 class="mat-h1">Dashboard</h1>
+  <mat-grid-list cols="2" rowHeight="350px">
     <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
       <mat-card class="dashboard-card">
         <mat-card-header>
-          <div mat-card-avatar id="avatar">
-            <img src={{card.picture}} style="float:center;width:120px;height:120px; object-fit: cover;
-            border-radius: 50%;">
-        </div>
           <mat-card-title>
-            <!-- {{card.title}} -->
+            {{card.title}}
             <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
               <mat-icon>more_vert</mat-icon>
             </button>
@@ -18,12 +15,8 @@
             </mat-menu>
           </mat-card-title>
         </mat-card-header>
-       
         <mat-card-content class="dashboard-card-content">
-          <a href={{card.url}}> 
-            <h2 style="font-family: cursive;">{{card.title}} </h2>
-          </a>
-          <!-- <img mat-card-image src={{card.picture}} style="float:center;width:70px;height:70px;"> -->
+          <div>Card Content Here</div>
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>

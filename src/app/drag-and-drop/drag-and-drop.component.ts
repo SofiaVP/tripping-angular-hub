@@ -9,18 +9,14 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/dr
 export class DragAndDropComponent {
   newTask : string;
   todo = [
-    'Get to work',
-    'Pick up groceries',
-    'Go home',
-    'Fall asleep'
+    "Clean appartment",
+    "Find passport"
   ];
 
   done = [
-    'Get up',
-    'Brush teeth',
-    'Take a shower',
-    'Check e-mail',
-    'Walk dog'
+    "Present shooping",
+    "Find a a cat Sitter", 
+    "Call mor"
   ];
 
   addTask(newTask : string){
