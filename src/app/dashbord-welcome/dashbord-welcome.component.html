@@ -4,24 +4,26 @@
       <mat-card class="dashboard-card">
         <mat-card-header>
           <div mat-card-avatar id="avatar">
-            <img src={{card.picture}} style="float:center;width:120px;height:120px; object-fit: cover;
+            <img src={{card.picture}} style="float: center;width:60px;height:60px; object-fit: cover;
             border-radius: 50%;">
         </div>
           <mat-card-title>
             <!-- {{card.title}} -->
-            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+            <!-- <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
               <mat-icon>more_vert</mat-icon>
-            </button>
-            <mat-menu #menu="matMenu" xPosition="before">
+            </button> -->
+            <!-- <mat-menu #menu="matMenu" xPosition="before">
               <button mat-menu-item>Expand</button>
               <button mat-menu-item>Remove</button>
-            </mat-menu>
+            </mat-menu> -->
           </mat-card-title>
         </mat-card-header>
        
         <mat-card-content class="dashboard-card-content">
+          <br>
+          <br>
           <a href={{card.url}}> 
-            <h2 >{{card.title}} </h2>
+            <h6 >{{card.title}} </h6>
           </a>
           <!-- <img mat-card-image src={{card.picture}} style="float:center;width:70px;height:70px;"> -->
         </mat-card-content>
