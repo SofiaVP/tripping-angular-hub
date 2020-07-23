@@ -1,10 +1,11 @@
 .sidenav-container {
   height: 100%;
-  font-family: cursive;
 }
 
 .sidenav {
-  width: 200px;
+  width: 180px;
+  // background: rgb(179,205,224);
+  // background: radial-gradient(circle, rgba(179,205,224,1) 0%, rgba(0,91,150,1) 53%, rgba(1,31,75,1) 100%);
 }
 
 .sidenav .mat-toolbar {
@@ -19,7 +20,12 @@
 }
 
 #toolbar{
+  
   height: 87px;
-  background-image: url("../../assets/images/background3.jpg") ;
+  background: rgb(1,31,75) ;
+  background: linear-gradient(90deg, rgba(1,31,75,1) 0%, rgba(0,91,150,1) 50%, rgba(179,205,224,1) 100%);
+
 }
+
+
 

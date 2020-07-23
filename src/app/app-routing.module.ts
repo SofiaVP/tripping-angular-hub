@@ -11,6 +11,7 @@ import { RegisterComponent } from './register/register.component';
 import { DragAndDropComponent } from './drag-and-drop/drag-and-drop.component';
 import { FooterComponent } from './footer/footer.component';
 import { ForecastComponent } from './forecast/forecast.component';
+import { DashbordTodoComponent } from './dashbord-todo/dashbord-todo.component';
 
 
 const routes: Routes = [
@@ -28,7 +29,7 @@ const routes: Routes = [
   { path: 'tripping-list', component: DashbordListsComponent},
   { path: 'tripping-login', component: LoginComponent},
   { path: 'tripping-register', component: RegisterComponent},
-  { path: 'tripping-to-do', component: DragAndDropComponent},
+  { path: 'tripping-to-do', component: DashbordTodoComponent},
 
   { path: '', redirectTo: '/tripping-register', pathMatch: 'full'},
 

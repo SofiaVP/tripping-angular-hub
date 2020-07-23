@@ -1,41 +1,45 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
-    <mat-toolbar>
-      <!-- <img src="../assets/images/logo1.jpg" style="float: inline-start;"> -->
-      <div style="font-family: cursive;">Welcome {{user}}</div>
-    </mat-toolbar>
-    <mat-nav-list>
-      <a mat-list-item href="/tripping-welcome">Home</a>
-      <a mat-list-item href="/tripping-list">Luggage</a>
-      <a mat-list-item href="/tripping-weather">Weather forecast</a>
-      <a mat-list-item href="/tripping-to-do">To Do</a>
-    </mat-nav-list>
-  </mat-sidenav>
+
   <mat-sidenav-content>
 
     <mat-toolbar id="toolbar">
       <div fxFlex fxLayout="row" fxLayoutAlign="space-between center">
-        <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
-          *ngIf="isHandset$ | async">
-          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-        </button>
         <div style="color: aliceblue;">
-          <span>
-            <mat-slide-toggle (change)="onDarkModeSwitched($event)">
-              <mat-icon>brightness_medium</mat-icon>
-            </mat-slide-toggle>
-          </span>
+          <div>
+            <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+              <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+            </button>
+          </div>
+          <div>
+            <span>
+              <i class="far fa-sun"></i>
+              <mat-slide-toggle (change)="onDarkModeSwitched($event)" checked ></mat-slide-toggle>
+              <i class="fas fa-moon" style="color: aliceblue;"></i>
+              
+              <!-- <mat-icon style="color: aliceblue;">brightness_medium</mat-icon> -->
+            </span>
+          </div>
         </div>
-        <h1 style="font-size:60px; color: aliceblue; font-family: cursive;">Tripping</h1>
-        <ul fxLayout="row" fxLayoutGap="10px">
-          <div>
-            <button mat-raised-button color="primary" [routerLink]="['/tripping-login']">Login</button>
+        <h1 style="font-size:60px; color: aliceblue;">Tripping</h1>
+        <div *ngIf=isSignedIn>
+          <button mat-raised-button (click)=doLogOut() color="primary" [routerLink]="['/tripping-register']">logout</button>
+        </div>
+        
+        <div *ngIf= !isSignedIn>
+          <ul fxLayout="row" fxLayoutGap="10px">
+            <div>
+              <button mat-raised-button color="primary" [routerLink]="['/tripping-login']">Login</button>
+            </div>
+            <div>
+              <button mat-raised-button color="primary" [routerLink]="['/tripping-register']">Register</button>
+            </div>
+          </ul>
           </div>
-          <div>
-            <button mat-raised-button color="primary" [routerLink]="['tripping-register']">Register</button>
-          </div>
-        </ul>
+
+
+          
+
+
       </div>
     </mat-toolbar>
     <!-- Add Content Here -->
@@ -46,4 +50,23 @@
     <!-- <app-dashbord-test></app-dashbord-test> -->
     <router-outlet></router-outlet>
   </mat-sidenav-content>
+
+
+  <mat-sidenav #drawer mode="side" closed class="sidenav">
+  <!-- <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+  [opened]="(isHandset$ | async) === false"> -->
+
+  <!-- [mode]="(isHandset$ | async) ? 'over' : 'side'"  -->
+
+
+  <!-- <mat-toolbar>
+    <div>Welcome </div>
+  </mat-toolbar> -->
+  <mat-nav-list>
+    <a mat-list-item href="/tripping-welcome">Home</a>
+    <a mat-list-item href="/tripping-weather">Weather forecast</a>
+    <a mat-list-item href="/tripping-list">Luggage</a>
+    <a mat-list-item href="/tripping-to-do">To Do</a>
+  </mat-nav-list>
+</mat-sidenav>
 </mat-sidenav-container>

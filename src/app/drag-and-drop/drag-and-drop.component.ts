@@ -9,14 +9,11 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/dr
 export class DragAndDropComponent {
   newTask : string;
   todo = [
-    "Clean appartment",
-    "Find passport"
+    
   ];
 
   done = [
-    "Present shooping",
-    "Find a a cat Sitter", 
-    "Call mor"
+    
   ];
 
   addTask(newTask : string){
@@ -31,5 +28,15 @@ export class DragAndDropComponent {
           event.previousIndex,
           event.currentIndex);
     }
+  }
+
+  demo(){
+    this.todo.push("MERCI aux papas de la promotions - Andre, Alpha et Prot");
+    this.todo.push("谢谢 (Xièxiè) Ying et Zhifeng, pour tous les fous rires qu'on a eu ensembles"); 
+    this.todo.push("MERCI Lylia, Camille et Nawel - vous être des femmes extraoirdinaires et des exemples à suivre")
+    this.todo.push("MERCI The BEST DREAM TEAM EVER !! - Hanane, Angélique et Stéphane")
+    this.todo.push("MERCI David - pour toute ta patience et ton soutient inconditionnel "); 
+    this.todo.push("MERCI à toute la famille Isika"); 
+    this.todo.push("Finir ma présentation et aller prendre l'apéro 🍺 "); 
   }
 }

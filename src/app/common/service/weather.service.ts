@@ -13,8 +13,7 @@ export class WeatherService {
 
   constructor(private http: HttpClient) { }
   
-  baseURL = 'https://tripping-nodejs.herokuapp.com' //prod
-  // baseURL = 'http://localhost:8282'; //dev
+  baseURL = 'https://tripping-nodejs.herokuapp.com' 
 
   public fetchWeatherforecastByCityname(cityname: String) :Observable<SingleWeatherforecast[]> {
     let url = `${this.baseURL}`+`/weather-api/public/forecastbycity/`+`${cityname}`; 

@@ -12,11 +12,10 @@ import { stringify } from 'querystring';
 })
 export class ListsService {
 
-   baseURL = 'https://tripping-ms-lists.herokuapp.com';
-  //  baseURL = 'http://localhost:9998';
+  //  baseURL = 'https://tripping-ms-lists.herokuapp.com';
+   baseURL = 'http://localhost:9998';
 
   constructor(private http: HttpClient) {
-    //const BASE_URL = process.env.BASE_URL;
   }
   
   

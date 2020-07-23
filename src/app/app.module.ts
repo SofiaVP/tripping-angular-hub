@@ -64,6 +64,7 @@ import { FormTestComponent } from './form-test/form-test.component';
 import { DragAndDropComponent } from './drag-and-drop/drag-and-drop.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { DashbordTestComponent } from './dashbord-test/dashbord-test.component';
+import { DashbordTodoComponent } from './dashbord-todo/dashbord-todo.component';
 
 @NgModule({
   declarations: [
@@ -90,7 +91,8 @@ import { DashbordTestComponent } from './dashbord-test/dashbord-test.component';
     RegisterComponent,
     FormTestComponent,
     DragAndDropComponent,
-    DashbordTestComponent
+    DashbordTestComponent,
+    DashbordTodoComponent
   ],
   imports: [
     BrowserModule,

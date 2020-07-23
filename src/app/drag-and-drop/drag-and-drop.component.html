@@ -1,15 +1,22 @@
+
 <div fxLayout="row" fxLayoutAlign="space-around start" >
   <!-- <div fxLayout="row" fxLayoutAlign="space-evenly center" > -->
-  <div class="container">
+    
+    <div class="container">
+
     <h2 align="center">New task</h2>
     <div fxLayout="row" fxLayoutAlign="space-evenly center" >
       <mat-form-field class="example-form-field">
         <mat-label>Task </mat-label>
-        <input matInput type="text" [(ngModel)]="newTask">
+        <textarea matInput [(ngModel)]="newTask"></textarea>
       </mat-form-field>
-      <button mat-raised-button matTooltip="Add {{newTask}}" class="example-add-tab-button" (click)="addTask(newTask)">
+      <!-- <div  fxLayout="column" fxLayoutAlign="space-around center"> -->
+      <button mat-raised-button color="primary" matTooltip="Add {{newTask}}" class="example-add-tab-button" (click)="addTask(newTask)">
         <mat-icon>add</mat-icon>
       </button>
+        <button mat-raised-button color="primary" (click)= demo()> Demo 1 </button>
+        <!-- <button mat-raised-button color="primary" (click)= demoEnd()> Demo 2 </button> -->
+      <!-- </div> -->
     </div>
 
   </div>

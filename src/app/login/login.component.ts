@@ -24,9 +24,10 @@ export class LoginComponent implements OnInit {
         if (response.password === this.login.password) 
         {
           this.message = "";
-          this.router.navigate(['tripping-welcome'])
-          console.log("conected user ==========> "+sessionStorage.getItem("user"))
+          this.router.navigate(['/tripping-welcome'])
+          console.log("in login component, conected user ==========> "+sessionStorage.getItem("user"))
           this.userService.isUserLoggedIn.next(true);
+          this.userService.isSignedIn = true;
         
         }
         else {
@@ -39,6 +40,9 @@ export class LoginComponent implements OnInit {
       );
   }
 
+  onSignUp() {
+    this.router.navigate(['/tripping-register'])
+  }
 
   constructor(private router : Router, public userService : UserService) { }
 
