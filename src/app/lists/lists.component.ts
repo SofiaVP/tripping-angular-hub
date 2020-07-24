@@ -81,6 +81,16 @@ export class ListsComponent implements OnInit {
 
    }
 
+   demoOne(){
+     this.newItemLabel = "Contact lenses"
+     this.newItemQuantity = 9
+   }
+
+   demoTwo(){
+     this.newItemLabel = "Harry potter socks"
+     this.newItemQuantity = 1
+   }
+
   //+++++++++++++++++++++++++ tabs +++++++++++++++++++++++++++++++++
   addTab(tabName: string) {
     const newListe = new Liste( Math.random(),tabName, sessionStorage.getItem("user") );
@@ -140,6 +150,7 @@ addItem(category : string, selectInBag : boolean){
     },
     (error)=> {console.log(error)}
   )
+ 
 }
 
 comingSoon(){

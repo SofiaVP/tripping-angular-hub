@@ -1,5 +1,6 @@
 
-
+<button mat-raised-button color="primary" (click)= demoOne() > Demo 1 </button>
+<button mat-raised-button color="primary" (click)= demoTwo() > Demo 2 </button>
 <div fxLayout="row" fxLayoutAlign="space-between center"  >
   <div>
     <div fxLayoutAlign="center center" >
@@ -114,10 +115,10 @@
           </ng-template>
         </td>
         <td>
-          <button mat-raised-button matTooltip="Save changes to {{i.itemLabel}} ">
+          <!-- <button mat-raised-button matTooltip="Save changes to {{i.itemLabel}} ">
             <mat-icon>edit</mat-icon>
-          </button>
-          <button mat-raised-button matTooltip="Delete {{i.itemLabel}} " (click)="onDeleteItem(i.itemLabel)">
+          </button> -->
+          <button mat-raised-button  matTooltip="Delete {{i.itemLabel}} " (click)="onDeleteItem(i.itemLabel)">
             <mat-icon>delete_outline</mat-icon>
           </button>
         </td>
@@ -141,7 +142,7 @@
           <!-- <input type="checkbox" #selectInBag> -->
         </td>
         <td>
-          <button mat-raised-button matTooltip="add item in {{tab}}" (click)="addItem(tab, selectInBag.checked)">
+          <button mat-raised-button color="primary" matTooltip="add item in {{tab}}" (click)="addItem(tab, selectInBag.checked)">
             <mat-icon>add</mat-icon>
           </button>
         </td>
