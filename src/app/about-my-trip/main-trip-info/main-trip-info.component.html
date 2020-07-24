@@ -2,9 +2,9 @@
 <div>
     <ngx-mat-drp (selectedDateRangeChanged)="updateRange($event)" [options]="options"></ngx-mat-drp>
 
-    <mat-label>My trip will last </mat-label> 
-    <input matInput type="number" [(ngModel)]="period" > 
-    <mat-label>days</mat-label>
+    <div fxLayout="row" fxLayoutAlign="space-between center" >
+        <mat-label>My trip will last {{period}} days</mat-label> 
+    </div>
 </div>
 
 <br />

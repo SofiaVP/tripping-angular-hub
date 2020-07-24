@@ -10,7 +10,7 @@ import { WeatherService } from '../common/service/weather.service';
 })
 export class ForecastComponent implements OnInit {
 
-  city : string = "Paris";
+  city : string ;
   forecast : SingleWeatherforecast[];
   //locationIcon
   iconURL : string = ''
@@ -38,13 +38,17 @@ export class ForecastComponent implements OnInit {
       )
   }
 
+  demo(){
+    this.city = "Copenhagen"
+  }
+
   
   ngOnInit(): void {
     // let locationIcon = document.querySelector('weather-icon');
     
     // locationIcon.innerHTML = `<img src="../common/images/${this.iconURL}.png">`;
     // locationIcon.innerHTML ="../common/images/icons/" +this.iconURL+ ".png' alt='Icon depicting current weather.'>"
-    this.onFetchforecastByCityName();
+    //this.onFetchforecastByCityName();
   }
 
 }

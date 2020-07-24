@@ -14,6 +14,7 @@ import { User } from '../common/data/user';
 export class ListsComponent implements OnInit {
   
   conectedUser: User;
+  clickedClothes = false;
 
   displayedColumns: string[] = ['item', 'quantity'];
   
@@ -27,7 +28,15 @@ export class ListsComponent implements OnInit {
   idListOfNewItem : number;
 
   listeAvecBonId: Liste;
+  listeClothesAvecBonId: Liste;
+  listeToiletriesAvecBonId: Liste;
+  listeEntertainmentAvecBonId: Liste;
+  listeImportantAvecBonId: Liste;
   beachList : Liste;
+  clothesList : Liste;
+  toiletriesList : Liste;
+  entertainmentList : Liste;
+  importantList : Liste;
   liste : Liste;
   listeItemsByCategory : Item[];
   listCategories : Liste[];
@@ -138,7 +147,7 @@ comingSoon(){
 }
 
 addBeachItems(){
-  this.listsService.fetchListByCategoryAndUser("beach", sessionStorage.getItem("user")).subscribe(
+  this.listsService.fetchListByCategoryAndUser("Beach", sessionStorage.getItem("user")).subscribe(
     (res)=>{
       this.listeAvecBonId = res;
       const sunscrean = new Item(Math.random(), "Sunscreen", 1, this.listeAvecBonId, false);
@@ -160,9 +169,9 @@ addBeach(){
   this.hiddenBeach = false;
 
     console.log("2 -> this.beachList : "+ JSON.stringify(this.beachList));
-    this.beachList = new Liste( Math.random(),"beach", sessionStorage.getItem("user") );
+    this.beachList = new Liste( Math.random(),"Beach", sessionStorage.getItem("user") );
     console.log("3 -> this.beachList : "+ JSON.stringify(this.beachList));
-    this.tabs.push("beach");
+    this.tabs.push("Beach");
     this.listsService.createNewList(this.beachList).subscribe(
       (liste) => {
        //this.beachList=liste;
@@ -176,7 +185,185 @@ addBeach(){
       (error) => {console.log(error)}
     )
 }
- 
+
+addClothesItems(){
+  this.listsService.fetchListByCategoryAndUser("Clothes", sessionStorage.getItem("user")).subscribe(
+    (res)=>{
+      this.listeClothesAvecBonId = res;
+      const socks = new Item(Math.random(), "Socks", 9, this.listeClothesAvecBonId, false);
+      const underwear = new Item(Math.random(), "Underwear", 9, this.listeClothesAvecBonId, false); 
+      const pants = new Item(Math.random(), "Pants", 2, this.listeClothesAvecBonId, false); 
+      const tshirts = new Item(Math.random(), "T-shirts", 8, this.listeClothesAvecBonId, false); 
+      const sweatshirt = new Item(Math.random(), "Sweatshirt", 1, this.listeClothesAvecBonId, false); 
+      const lightsweater = new Item(Math.random(), "Light sweater", 2, this.listeClothesAvecBonId, false); 
+      const pjs = new Item(Math.random(), "PJ's", 1, this.listeClothesAvecBonId, false); 
+      const fancyClothes = new Item(Math.random(), "Fancy Clothes", 2, this.listeClothesAvecBonId, false); 
+      const shoes = new Item(Math.random(), "Shes", 2, this.listeClothesAvecBonId, false); 
+      console.log("4 -> this.listeClothesAvecBonId : "+ JSON.stringify(this.listeClothesAvecBonId));
+      this.listsService.createNewItem(socks).subscribe((i)=>{console.log("dans lists.component.ts dans addClothesItems, this.newItem = " + JSON.stringify(socks));})
+      this.listsService.createNewItem(underwear).subscribe((i)=>{console.log("dans lists.component.ts dans addClothesItems, this.newItem = " + JSON.stringify(underwear));})
+      this.listsService.createNewItem(pants).subscribe((i)=>{console.log("dans lists.component.ts dans addClothesItems, this.newItem = " + JSON.stringify(pants));})
+      this.listsService.createNewItem(tshirts).subscribe((i)=>{console.log("dans lists.component.ts dans addClothesItems, this.newItem = " + JSON.stringify(tshirts));})
+      this.listsService.createNewItem(sweatshirt).subscribe((i)=>{console.log("dans lists.component.ts dans addClothesItems, this.newItem = " + JSON.stringify(sweatshirt));})
+      this.listsService.createNewItem(lightsweater).subscribe((i)=>{console.log("dans lists.component.ts dans addClothesItems, this.newItem = " + JSON.stringify(lightsweater));})
+      this.listsService.createNewItem(pjs).subscribe((i)=>{console.log("dans lists.component.ts dans addClothesItems, this.newItem = " + JSON.stringify(pjs));})
+      this.listsService.createNewItem(fancyClothes).subscribe((i)=>{console.log("dans lists.component.ts dans addClothesItems, this.newItem = " + JSON.stringify(fancyClothes));})
+      this.listsService.createNewItem(shoes).subscribe((i)=>{console.log("dans lists.component.ts dans addClothesItems, this.newItem = " + JSON.stringify(shoes));})
+    }
+  )  
+}
+
+addClothes(){
+  //this.hiddenBeach = false;
+
+    console.log("2 -> this.clothesList : "+ JSON.stringify(this.clothesList));
+    this.clothesList = new Liste( Math.random(),"Clothes", sessionStorage.getItem("user") );
+    console.log("3 -> this.clothesList : "+ JSON.stringify(this.clothesList));
+    this.tabs.push("Clothes");
+    this.listsService.createNewList(this.clothesList).subscribe(
+      (liste) => {
+       //this.clothesList=liste;
+       this.addClothesItems();
+       console.log("5 -> this.clothesList : "+ JSON.stringify(this.clothesList));
+       console.log("6 -> this.listeAvecBonId : "+ JSON.stringify(this.listeClothesAvecBonId));
+        
+        this.selected.setValue(this.tabs.length - 1);
+        this.fetchingItemsByCategoryAndUser(this.tabs[this.tabs.length - 1]);
+      },
+      (error) => {console.log(error)}
+    )
+}
+
+addToiletriesItems(){
+  this.listsService.fetchListByCategoryAndUser("Toiletries", sessionStorage.getItem("user")).subscribe(
+    (res)=>{
+      this.listeToiletriesAvecBonId = res;
+      const toothbrush = new Item(Math.random(), "Toothbrush", 1, this.listeToiletriesAvecBonId, false);
+      const toothpaste = new Item(Math.random(), "Toothpaste", 1, this.listeToiletriesAvecBonId, false); 
+      const deodorant = new Item(Math.random(), "Deodorant", 1, this.listeToiletriesAvecBonId, false); 
+      const perfume = new Item(Math.random(), "Perfume", 1, this.listeToiletriesAvecBonId, false); 
+      const cream = new Item(Math.random(), "Cream", 1, this.listeToiletriesAvecBonId, false); 
+      const shampoo = new Item(Math.random(), "Shampoo", 1, this.listeToiletriesAvecBonId, false); 
+      const soap = new Item(Math.random(), "Soap", 1, this.listeToiletriesAvecBonId, false); 
+      console.log("4 -> this.listeClothesAvecBonId : "+ JSON.stringify(this.listeToiletriesAvecBonId));
+      this.listsService.createNewItem(toothbrush).subscribe((i)=>{console.log("dans lists.component.ts dans addClothesItems, this.newItem = " + JSON.stringify(toothbrush));})
+      this.listsService.createNewItem(toothpaste).subscribe((i)=>{console.log("dans lists.component.ts dans addClothesItems, this.newItem = " + JSON.stringify(toothpaste));})
+      this.listsService.createNewItem(deodorant).subscribe((i)=>{console.log("dans lists.component.ts dans addClothesItems, this.newItem = " + JSON.stringify(deodorant));})
+      this.listsService.createNewItem(perfume).subscribe((i)=>{console.log("dans lists.component.ts dans addClothesItems, this.newItem = " + JSON.stringify(perfume));})
+      this.listsService.createNewItem(cream).subscribe((i)=>{console.log("dans lists.component.ts dans addClothesItems, this.newItem = " + JSON.stringify(cream));})
+      this.listsService.createNewItem(shampoo).subscribe((i)=>{console.log("dans lists.component.ts dans addClothesItems, this.newItem = " + JSON.stringify(shampoo));})
+      this.listsService.createNewItem(soap).subscribe((i)=>{console.log("dans lists.component.ts dans addClothesItems, this.newItem = " + JSON.stringify(soap));})
+    }
+  )  
+}
+
+addToiletries(){
+  //this.hiddenBeach = false;
+
+    console.log("2 -> this.toiletriesList : "+ JSON.stringify(this.toiletriesList));
+    this.toiletriesList = new Liste( Math.random(),"Toiletries", sessionStorage.getItem("user") );
+    console.log("3 -> this.toiletriesList : "+ JSON.stringify(this.toiletriesList));
+    this.tabs.push("Toiletries");
+    this.listsService.createNewList(this.toiletriesList).subscribe(
+      (liste) => {
+       //this.clothesList=liste;
+       this.addToiletriesItems();
+       console.log("5 -> this.toiletriesList : "+ JSON.stringify(this.toiletriesList));
+       console.log("6 -> this.listeToiletriesAvecBonId : "+ JSON.stringify(this.listeToiletriesAvecBonId));
+        
+        this.selected.setValue(this.tabs.length - 1);
+        this.fetchingItemsByCategoryAndUser("Toiletries");
+      },
+      (error) => {console.log(error)}
+    )
+}
+
+
+addEntertainmentItems(){
+  this.listsService.fetchListByCategoryAndUser("Entertainment", sessionStorage.getItem("user")).subscribe(
+    (res)=>{
+      this.listeEntertainmentAvecBonId = res;
+      const book = new Item(Math.random(), "Book", 1, this.listeEntertainmentAvecBonId, false);
+      const headphones = new Item(Math.random(), "Headphones", 1, this.listeEntertainmentAvecBonId, false); 
+      const pen = new Item(Math.random(), "Pen", 1, this.listeEntertainmentAvecBonId, false); 
+      const cwp = new Item(Math.random(), "Crossword puzzle", 1, this.listeEntertainmentAvecBonId, false); 
+      const computer = new Item(Math.random(), "Computer", 1, this.listeEntertainmentAvecBonId, false); 
+      const ComputerCharger = new Item(Math.random(), "Computer charger", 1, this.listeEntertainmentAvecBonId, false); 
+      const notepad = new Item(Math.random(), "Notepad", 1, this.listeEntertainmentAvecBonId, false); 
+      console.log("4 -> this.listeClothesAvecBonId : "+ JSON.stringify(this.listeEntertainmentAvecBonId));
+      this.listsService.createNewItem(book).subscribe((i)=>{console.log("dans lists.component.ts dans addClothesItems, this.newItem = " + JSON.stringify(book));})
+      this.listsService.createNewItem(headphones).subscribe((i)=>{console.log("dans lists.component.ts dans addClothesItems, this.newItem = " + JSON.stringify(headphones));})
+      this.listsService.createNewItem(pen).subscribe((i)=>{console.log("dans lists.component.ts dans addClothesItems, this.newItem = " + JSON.stringify(pen));})
+      this.listsService.createNewItem(cwp).subscribe((i)=>{console.log("dans lists.component.ts dans addClothesItems, this.newItem = " + JSON.stringify(cwp));})
+      this.listsService.createNewItem(computer).subscribe((i)=>{console.log("dans lists.component.ts dans addClothesItems, this.newItem = " + JSON.stringify(computer));})
+      this.listsService.createNewItem(ComputerCharger).subscribe((i)=>{console.log("dans lists.component.ts dans addClothesItems, this.newItem = " + JSON.stringify(ComputerCharger));})
+      this.listsService.createNewItem(notepad).subscribe((i)=>{console.log("dans lists.component.ts dans addClothesItems, this.newItem = " + JSON.stringify(notepad));})
+    }
+  )  
+}
+
+addEntertainment(){
+  //this.hiddenBeach = false;
+
+    console.log("2 -> this.entertainmentList : "+ JSON.stringify(this.entertainmentList));
+    this.entertainmentList = new Liste( Math.random(),"Entertainment", sessionStorage.getItem("user") );
+    console.log("3 -> this.entertainmentList : "+ JSON.stringify(this.entertainmentList));
+    this.tabs.push("Entertainment");
+    this.listsService.createNewList(this.entertainmentList).subscribe(
+      (liste) => {
+       //this.clothesList=liste;
+       this.addEntertainmentItems();
+       console.log("5 -> this.toiletriesList : "+ JSON.stringify(this.entertainmentList));
+       console.log("6 -> this.listeToiletriesAvecBonId : "+ JSON.stringify(this.listeEntertainmentAvecBonId));
+        
+        this.selected.setValue(this.tabs.length - 1);
+        this.fetchingItemsByCategoryAndUser("Entertainment");
+      },
+      (error) => {console.log(error)}
+    )
+}
+
+
+addImportantItems(){
+  this.listsService.fetchListByCategoryAndUser("Important stuff", sessionStorage.getItem("user")).subscribe(
+    (res)=>{
+      this.listeImportantAvecBonId = res;
+      const passport = new Item(Math.random(), "Passport", 1, this.listeImportantAvecBonId, false);
+      const wallet = new Item(Math.random(), "Wallet", 1, this.listeImportantAvecBonId, false); 
+      const keys = new Item(Math.random(), "Keys", 1, this.listeImportantAvecBonId, false); 
+      const phone = new Item(Math.random(), "Phone", 1, this.listeImportantAvecBonId, false); 
+      const phoneCharger = new Item(Math.random(), "Phone charger", 1, this.listeImportantAvecBonId, false); 
+      console.log("4 -> this.listeClothesAvecBonId : "+ JSON.stringify(this.listeImportantAvecBonId));
+      this.listsService.createNewItem(passport).subscribe((i)=>{console.log("dans lists.component.ts dans addClothesItems, this.newItem = " + JSON.stringify(passport));})
+      this.listsService.createNewItem(wallet).subscribe((i)=>{console.log("dans lists.component.ts dans addClothesItems, this.newItem = " + JSON.stringify(wallet));})
+      this.listsService.createNewItem(keys).subscribe((i)=>{console.log("dans lists.component.ts dans addClothesItems, this.newItem = " + JSON.stringify(keys));})
+      this.listsService.createNewItem(phone).subscribe((i)=>{console.log("dans lists.component.ts dans addClothesItems, this.newItem = " + JSON.stringify(phone));})
+      this.listsService.createNewItem(phoneCharger).subscribe((i)=>{console.log("dans lists.component.ts dans addClothesItems, this.newItem = " + JSON.stringify(phoneCharger));})
+    }
+  )  
+}
+
+addImportant(){
+  //this.hiddenBeach = false;
+
+    console.log("2 -> this.importantList : "+ JSON.stringify(this.importantList));
+    this.importantList = new Liste( Math.random(),"Important stuff", sessionStorage.getItem("user") );
+    console.log("3 -> this.importantList : "+ JSON.stringify(this.entertainmentList));
+    this.tabs.push("Important stuff");
+    this.listsService.createNewList(this.importantList).subscribe(
+      (liste) => {
+       //this.clothesList=liste;
+       this.addImportantItems();
+       console.log("5 -> this.toiletriesList : "+ JSON.stringify(this.importantList));
+       console.log("6 -> this.listeToiletriesAvecBonId : "+ JSON.stringify(this.listeImportantAvecBonId));
+        
+        this.selected.setValue(this.tabs.length - 1);
+      },
+      (error) => {console.log(error)}
+      )
+      this.fetchingItemsByCategoryAndUser("Important stuff");
+}
+
 onDeleteItem(itemLabel : string){
   console.log("in lists.component.ts itemLabel = "+itemLabel); 
   this.listsService.removeItem(itemLabel).subscribe(

@@ -12,6 +12,7 @@ import { DragAndDropComponent } from './drag-and-drop/drag-and-drop.component';
 import { FooterComponent } from './footer/footer.component';
 import { ForecastComponent } from './forecast/forecast.component';
 import { DashbordTodoComponent } from './dashbord-todo/dashbord-todo.component';
+import { DashbordForecastComponent } from './dashbord-forecast/dashbord-forecast.component';
 
 
 const routes: Routes = [
@@ -25,7 +26,7 @@ const routes: Routes = [
 
   
   { path: 'tripping-welcome', component: DashbordWelcomeComponent},
-  { path: 'tripping-weather', component: ForecastComponent},
+  { path: 'tripping-weather', component: DashbordForecastComponent},
   { path: 'tripping-list', component: DashbordListsComponent},
   { path: 'tripping-login', component: LoginComponent},
   { path: 'tripping-register', component: RegisterComponent},

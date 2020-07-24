@@ -13,16 +13,16 @@ export class DashbordWelcomeComponent {
     map(({ matches }) => {
       if (matches) {
         return [
-          { title: 'Luggage', url:'/tripping-list', picture:'../assets/gifs/luggage 1.gif', cols: 1, rows: 1 },
           { title: 'Weather forecast', url:'/tripping-weather"', picture:'../assets/gifs/weather1.gif', cols: 1, rows: 1 },
+          { title: 'Luggage', url:'/tripping-list', picture:'../assets/gifs/luggage 1.gif', cols: 1, rows: 1 },
           { title: 'To Do', url:'/tripping-to-do', picture:'../assets/gifs/todo.gif', cols: 1, rows: 1 },
           { title: 'User Information',url:'/tripping-user', picture:'../assets/gifs/user1.gif', cols: 1, rows: 1 }
         ];
       }
 
       return [
-        { title: 'Luggage', url:'/tripping-list', picture:'../assets/gifs/luggage 1.gif', cols: 1, rows: 1 },
         { title: 'Weather forecast', url:'/tripping-weather', picture:'../assets/gifs/weather1.gif', cols: 1, rows: 1 },
+        { title: 'Luggage', url:'/tripping-list', picture:'../assets/gifs/luggage 1.gif', cols: 1, rows: 1 },
         { title: 'To Do', url:'/tripping-to-do', picture:'../assets/gifs/todo.gif', cols: 1, rows: 1 },
         { title: 'User Information',url:'/tripping-user', picture:'../assets/gifs/user1.gif', cols: 1, rows: 1 }
       ];

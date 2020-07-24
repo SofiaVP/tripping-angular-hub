@@ -20,7 +20,7 @@
             </span>
           </div>
         </div>
-        <h1 style=" font-size:40px; color: aliceblue;">Tripping</h1>
+        <h1 style=" font-size:60px; ">Tripping</h1>
         <!-- font-size:60px -->
         <div *ngIf=isSignedIn>
           <button mat-raised-button (click)=doLogOut() color="primary" [routerLink]="['/tripping-register']">logout</button>
@@ -68,6 +68,7 @@
     <a mat-list-item href="/tripping-weather">Weather forecast</a>
     <a mat-list-item href="/tripping-list">Luggage</a>
     <a mat-list-item href="/tripping-to-do">To Do</a>
+    <a mat-list-item href="/tripping-welcome">User Info</a>
   </mat-nav-list>
 </mat-sidenav>
 </mat-sidenav-container>

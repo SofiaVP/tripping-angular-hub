@@ -1,37 +1,74 @@
-<mat-form-field class="example-form-field">
-  <mat-label>New tab name </mat-label>
-  <input matInput type="text" [(ngModel)]="tabName">
-</mat-form-field>
 
-<button mat-raised-button matTooltip="Add new list {{tabName}}" class="example-add-tab-button"
-  (click)="addTab(tabName)">
-  <mat-icon>playlist_add</mat-icon>
-</button>
 
-<ul fxLayout="row" fxLayoutGap="10px">
+<div fxLayout="row" fxLayoutAlign="space-between center"  >
   <div>
-    <button mat-raised-button matBadge="✔️" [matBadgeHidden]="hiddenBeach" (click)="addBeach()">Beach <mat-icon>
-        beach_access</mat-icon></button>
+    <div fxLayoutAlign="center center" >
+      <app-main-trip-info></app-main-trip-info>
+    </div>
   </div>
-  <div>
-    <button mat-raised-button matBadge="✔️" [matBadgeHidden]="hidden" (click)="comingSoon()">Sports <mat-icon>
-        directions_run</mat-icon></button>
-  </div>
-  <div>
-    <button mat-raised-button matBadge="✔️" [matBadgeHidden]="hidden" (click)="comingSoon()">Ski <mat-icon>ac_unit
-      </mat-icon></button>
-  </div>
-  <div>
-    <button mat-raised-button matBadge="✔️" [matBadgeHidden]="hidden" (click)="comingSoon()">Camping
-        <i class="fas fa-campground"></i>
-      </button>
-  </div>
+  <div fxLayout="row" fxLayoutAlign="end start" >
+    <mat-form-field class="example-form-field">
+      <mat-label>New tab name </mat-label>
+      <input matInput type="text" [(ngModel)]="tabName">
+     </mat-form-field>
+     <button mat-raised-button color="primary" matTooltip="Add new list {{tabName}}" class="example-add-tab-button"
+          (click)="addTab(tabName)">
+          <mat-icon>add</mat-icon>
+    </button>
+   </div>
 
-  
-</ul>
+     <div fxLayout="column" fxLayoutGap="10px">
+      <ul fxLayout="row" fxLayoutGap="10px">
+        <div>
+          <button mat-raised-button (click)="addImportant()">Importnat stuff <mat-icon><i class="fas fa-key"></i></mat-icon></button>
+        </div>
+        <div>
+          <button mat-raised-button (click)="addEntertainment()">Entertainment <mat-icon><i class="fas fa-headphones-alt"></i></mat-icon></button>
+        </div>
+      </ul>
+
+       <ul fxLayout="row" fxLayoutGap="10px">
+         <!-- <h6> Essentials</h6> -->
+         <div>
+           <button mat-raised-button (click)="addClothes()" >Clothes <mat-icon><i class="fas fa-socks"></i></mat-icon></button>
+         </div>
+         <div>
+           <button mat-raised-button (click)="addToiletries()">Toiletries <mat-icon><i class="fas fa-pump-soap"></i></mat-icon></button>
+         </div>
+
+       </ul>
 
 
+       <ul fxLayout="row" fxLayoutGap="10px">
+         <!-- <h6>Outdoorsy</h6> -->
+         <div>
+           <button mat-raised-button (click)="addBeach()">Beach <mat-icon>
+               beach_access</mat-icon></button>
+         </div>
+         <div>
+           <button mat-raised-button matBadge="✔️" [matBadgeHidden]="hidden" (click)="comingSoon()">Sports <mat-icon>
+               directions_run</mat-icon></button>
+         </div>
+         <div>
+           <button mat-raised-button matBadge="✔️" [matBadgeHidden]="hidden" (click)="comingSoon()">Ski <mat-icon>ac_unit
+             </mat-icon></button>
+         </div>
+         <div>
+           <button mat-raised-button matBadge="✔️" [matBadgeHidden]="hidden" (click)="comingSoon()">Camping
+           <mat-icon>
+             <i class="fas fa-campground"></i>
+           </mat-icon> 
+             </button>
+         </div>
 
+         
+       </ul>
+     </div>
+
+ 
+
+
+</div>
 <mat-tab-group [selectedIndex]="selected.value" (selectedIndexChange)="selected.setValue($event)"
   mat-align-tabs="center" ngModel [ngModelOptions]="{tabCat: 'tab'}">
   <mat-tab *ngFor="let tab of tabs; let index = index" [label]="tab">
@@ -43,7 +80,7 @@
       </div>
       <div>
         <button mat-raised-button matTooltip="Delete {{tab}}" class="example-delete-tab-button"
-          [disabled]="tabs.length === 1" (click)="removeTab(index, tab)">
+          (click)="removeTab(index, tab)">
           <mat-icon>delete_outline</mat-icon>
         </button>
       </div>
